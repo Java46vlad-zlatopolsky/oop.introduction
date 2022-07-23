@@ -3,9 +3,31 @@ package telran.people;
 public class SalesPerson extends Employee {
 	private int sales;
 	private int percentPay;
+	public static int getMinPercentPay() {
+		return minPercentPay;
+	}
+
+	public static void setMinPercentPay(int minPercentPay) {
+		SalesPerson.minPercentPay = minPercentPay;
+	}
+
+	public static int getMaxPercentPay() {
+		return maxPercentPay;
+	}
+
+	public static void setMaxPercentPay(int maxPercentPay) {
+		SalesPerson.maxPercentPay = maxPercentPay;
+	}
+
+	private static int minPercentPay = 0;
+	private static int maxPercentPay = 100;
 
 	public SalesPerson(long id, int birthYear, String email, int basicSalary, int sales, int percentPay) {
 		super(id, birthYear, email, basicSalary);
+		if (percentPay < minPercentPay || percentPay > maxPercentPay) {
+			throw new IllegalArgumentException(String.format("%d - wrong percent pay value, " 
+		+ "should be in range [%d - %d]", percentPay, minPercentPay, maxPercentPay));
+		}
 		setSales(sales);
 		setPercentPay(percentPay);
 	}

@@ -11,7 +11,7 @@ class PersonEmployeeTests {
 	private static final long ID = 123;
 	private static final int BIRTH_YEAR = 2000;
 	private static final String EMAIL = "vasya@gmail.com";
-	private static final String ANOTHER_EMAIL = "vasya@tel-ran.com";
+	private static final String ANOTHER_EMAIL = "vasya@telran.com";
 	private static final int BASIC_SALARY = 1000;
 	private static final int SALES = 50;
 	private static final int PERCENT_PAY = 50;
@@ -88,5 +88,82 @@ class PersonEmployeeTests {
 		salesPerson.setPercentPay(ANOTHER_PERCENT_PAY);
 		assertEquals(ANOTHER_SALES_PERSON_SALARY, salesPerson.computePay());
 	}
+	
+	@Test
+	void wrongBirthYearTest() {
+		boolean flException = false;
+		try {
+			SalesPerson sp = new SalesPerson(123, 2018, "sp@gmail.com", 1000, 100, 10);
+			fail("Should be thrown exception");
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		try {
+			new Employee(100, 1913, ANOTHER_EMAIL, BASIC_SALARY);
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	@Test 
+	void wrongPercentPayTest() {
+		boolean flException = false;
+		try {
+			SalesPerson sp1 = new SalesPerson(1234, 1980, "sp1@gmail.com", 500, 500, -1);
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		try {
+			new SalesPerson(1234, 1980, "sp1@gamil.com", 500, 500, 700);
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	@Test 
+	void wrongMinimalSalaryValueTest() {
+		boolean flException = false;
+		try {
+			WageEmployee we1 = new WageEmployee(123, 1960, ANOTHER_EMAIL, 50, ANOTHER_WAGE, ANOTHER_HOURS);
+		}catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		
+	}
 
+	@Test
+	void wrongEmailTest() {
+		boolean flException = false;
+		try {
+			Person p1 = new Person(ID, 1985, "email.com");
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		try {
+			Person p2 = new Person(ID, 1985, "@email.com");
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		try {
+			Person p2 = new Person(ID, 1985, "email@");
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+	}
 }

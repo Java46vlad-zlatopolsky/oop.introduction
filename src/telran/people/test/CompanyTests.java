@@ -1,14 +1,14 @@
 package telran.people.test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static telran.people.CompanySortedArray.*;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import telran.people.*;
 
-class CompanyTests {
+class CompanyTests { 
 	private static final long ID1 = 1;
 	private static final int BIRTH_YEAR1 = 1980;
 	private static final String EMAIL1 = "empl1@gmail.com";
@@ -37,9 +37,8 @@ class CompanyTests {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		company = new CompanyArray();
-		//TODO for HW #10
-		//company = new CompanySortedArray(); //for HW #10 
+		//company = new CompanyArray();
+		company = new CompanySortedArray(); //for HW #10 
 		for (int i = 0; i < employees.length; i++) {
 			company.addEmployee(employees[i]);
 		}
@@ -97,10 +96,23 @@ class CompanyTests {
 		for (int i = 0; i < N_EMPLOYEES; i++) {
 			company.addEmployee(new Employee((long)(Math.random() * Long.MAX_VALUE), 1980, EMAIL1, 1000));
 		}
-		
-		
 	}
 	
+	@Test
+	void testSortByAge() {
+		Employee [] expected = {
+				empl3, empl1, empl2
+		};
+		assertArrayEquals(expected, company.sortEmployeesByAge());
+ 	}
+	
+	@Test
+	void testSortBySalary() {
+		Employee [] expected = {
+				empl2, empl3, empl1
+		};
+		assertArrayEquals(expected, company.sortEmployeesBySalary());
+	}
 
 
 }

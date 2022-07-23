@@ -2,18 +2,16 @@ package telran.people;
 
 import java.util.Arrays;
 
-public class CompanySortedArray extends CompanyArray {
+public class CompanySortedArray extends CompanyArray { 
 	
 	
 	@Override
-	public boolean addEmployee(Employee empl) {
-		// TODO
-		// finds index for adding with keeping array sorted
-		// calls getEmployeeIndex
-		long id = empl.getId();
-		int index = -(getEmployeeIndex(id)+1);
-		if (index < 0) {
+	public boolean addEmployee(Employee empl) { 
 		
+		long id = empl.getId();
+		int index = getEmployeeIndex(id);
+		if (index < 0) {
+		index = -(index + 1);
 		Employee [] newEmplArr = new Employee [employees.length + 1];
 		System.arraycopy(employees, 0, newEmplArr, 0, index);
 		newEmplArr [index] = empl;
@@ -27,8 +25,6 @@ public class CompanySortedArray extends CompanyArray {
 
 	@Override
 	protected int getEmployeeIndex(long id) {
-		// TODO
-		// based on Arrays.binarySearch
 		
 		Person person1 = new Person(id, 0, null); 
 		return Arrays.binarySearch(employees, person1);
