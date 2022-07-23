@@ -4,16 +4,16 @@ import static org.junit.Assert.assertTrue;
 import java.text.ParseException;
 import java.util.Arrays;
 
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import telran.text.Strings;
 
 class StringsTest {
-	@BeforeEach
-	void setUp() throws Exception{
-		
-	}
+//	@BeforeEach
+//	void setUp() throws Exception{ 
+//		
+//	}
 
 	@Test
 	void testSortStringsAsDates() throws ParseException {
