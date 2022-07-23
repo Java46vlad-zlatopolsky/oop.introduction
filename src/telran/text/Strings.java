@@ -5,17 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Strings   {
-	/**
-	 * 
-	 * @param dates - array of strings containing dates in the format D/M/YYYY
-	 * D  day of month without leading zero (03);
-	 * < month number (1-12)
-	 * YYYY - year (1980)
-	 * create comparator. use only class String and interface Comparator
-	 * @return array sorted by dates
-	 * @throws ParseException 
-	 */
-	
 
 
 	public static String[] sortStringsAsDates (String [] dates) throws ParseException  {
