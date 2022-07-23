@@ -7,7 +7,9 @@ import java.util.Date;
 public class Strings   {
 
 
-
+//Method receive dates array and send it for sorting. 
+//If array was already sorted returns sorted array
+	
 	public static String[] sortStringsAsDates (String [] dates)   {
 		do {
 			sortArray(dates);
@@ -16,6 +18,7 @@ public class Strings   {
 		return dates;
 	}
 	
+// Method sort array with bubble sort method
 	private static boolean sortArray(String [] dates)  {
 		boolean isSorted = true;
 		for (int i = 1; i < dates.length ; i++) {
@@ -31,6 +34,9 @@ public class Strings   {
 		
 	}
 
+// Solution use parsing string according to SimpleDateFormat
+// Method was created for tests only
+	
 //	private static int dateComparator(String date1, String date2) throws ParseException {
 //		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 //
@@ -42,6 +48,9 @@ public class Strings   {
 //		return res;
 //	}
 	
+// Date comparator method splits string according to "/" regex 
+// converts string to int and compare values, returns 0, negative or positive value  
+// depends of which of 2 compared values was bigger
 	private static int dateComparator(String date1, String date2)  {
 		int compareStartPosition = 0;
 		int res = 0;
