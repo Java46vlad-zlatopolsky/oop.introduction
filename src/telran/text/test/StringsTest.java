@@ -23,9 +23,18 @@ class StringsTest {
 		assertTrue(Arrays.equals(outputDates, Strings.sortStringsAsDates(inputDates)));
 
 		String [] inputDates1 =  {"2/1/2022", "1/1/2022","1/1/2022", "01/08/1945", "30/12/2020"};
-		String [] outputDates2 = {"01/08/1945", "30/12/2020", "1/1/2022", "1/1/2022", "2/1/2022"};
+		String [] outputDates1 = {"01/08/1945", "30/12/2020", "1/1/2022", "1/1/2022", "2/1/2022"};
 		
-		assertTrue(Arrays.equals(outputDates2, Strings.sortStringsAsDates(inputDates1)));
+		assertTrue(Arrays.equals(outputDates1, Strings.sortStringsAsDates(inputDates1)));
+		
+		try {
+			String [] inputDates2 =  {"2022", "1/1/5/2022","1/1/2022"};
+			Strings.sortStringsAsDates(inputDates2);
+			
+		}
+		catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
 }
 
 
