@@ -1,8 +1,8 @@
 package telran.text;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
 
 public class Strings   {
 
@@ -33,20 +33,6 @@ public class Strings   {
 		return isSorted;
 		
 	}
-
-// Solution use parsing string according to SimpleDateFormat
-// Method was created for tests only
-	
-//	private static int dateComparator(String date1, String date2) throws ParseException {
-//		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-//
-//	    Date d1 = format.parse(date1);
-//	    Date d2 = format.parse(date2);
-//	    
-//	    int res = d1.compareTo(d2);
-//
-//		return res;
-//	}
 	
 // Date comparator method splits string according to "/" regex 
 // converts string to int and compare values, returns 0, negative or positive value  
@@ -74,6 +60,19 @@ public class Strings   {
 		return res;			
 	}
 
+	// Solution use parsing string according to SimpleDateFormat
+	// Method was created for tests only
+		
+//		private static int dateComparator(String date1, String date2) throws ParseException {
+//			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	//
+//		    Date d1 = format.parse(date1);
+//		    Date d2 = format.parse(date2);
+//		    
+//		    int res = d1.compareTo(d2);
+	//
+//			return res;
+//		}
 
 	
 }
